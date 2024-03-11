@@ -2,5 +2,6 @@ Flask
 Flask-Cors
 gunicorn
 scikit-learn
+pickle5
 numpy
 pandas
