@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston House Price</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body{
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            /* background: linear-gradient(135deg, #71b7e6, #ee58c1); */
+            /* background-image: url('house.jpg'); */
+        }
+        .content{
+            max-width: 750px;
+            width: 100%;
+            background-color: rgb(209, 211, 203);
+            padding: 25px 30px;
+            border-radius: 5px;
+
+        }
+        .content::before{
+    content: "";
+    position: absolute;
+    background: url('https://images.contentstack.io/v3/assets/bltf589e66bcaecd79c/bltef0b39eb529be37a/5f2ab77c0269427af13883d0/black-windows-on-modern-home.jpg') no-repeat center center/cover;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 1;
+        }
+        .content .title{
+            font-size: 30px;
+            font-weight: 700;
+            position: relative;
+            text-align: center;
+            /* margin-bottom: 25px; */
+        }
+        .content .sub-title{
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 7px;
+        }
+        .content .title::before{
+            content: '';
+            align-items: center;
+            position:absolute;
+            /* left: 0; */
+            bottom: 0;
+            height: 3px;
+            width: 440px;
+            background:linear-gradient(135deg, #71b7e6, #ee58c1);
+        }
+        .content form .user-detail{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        form .user-detail .input-box{
+            margin: 10px 0 5px 0;
+            /* margin-bottom: 15px; */
+            width: calc(100%/2 - 20px);
+        }
+        .user-detail .input-box .details{
+            display: block;
+            font-weight: 550;
+            margin-bottom: 5px;
+        }
+        .user-detail .input-box input{
+            height: 35px;
+            width: 100%;
+            outline: none;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            border-block-width: 2px;
+            transition: all 0.3s ease;
+        }
+        .user-detail .input-box input:focus{
+        /* .user-detail .input-box input:valid{ */
+            /* border: 2px solid #5e4eeb; */
+            border: 2px solid black;
+        }
+        form .button{
+            height: 45px;
+            margin: 8px 0;
+        }
+        form .button button{
+            margin-top: 5px;
+            height: 100%;
+            width: 100%;
+            outline: none;
+            color: black;
+            background: linear-gradient(135deg, #71b7e6, #ee58c1);
+            border: none;
+            font-size: 18px;
+            font-weight: 500;
+            /* letter-spacing: 1px; */
+            border-radius: 5px;
+        }
+        form .button button:hover{
+            /* background: linear-gradient(-135deg, #71b7e6, #ee58c1);    */
+            border: 2px solid rgb(63, 55, 55);
+            cursor: pointer;
+            font-size: 19px;
+        }
+        @media (max-width: 584px){
+            .content{
+            max-width: 100%;
+            }
+            form .user-detail .input-box{
+            margin: 10px 0 5px 0;
+            width: 100%;
+        }
+        .content form .user-detail{
+            max-height: 300px;
+            overflow-y: scroll;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="title">Campaign data statistics</div>
+        <div class="sub-title">Predictive Analysis</div>
+        <form action="/predict" method="POST">
+            <div class="user-detail">
+                <div class="input-box">
+                    <span class="details">sender</span>
+                    <input id="first" name="sender" type="number ">
+                </div>
+                <div class="input-box">
+                    <span class="details">subject length</span>
+                    <input id="second" name="subject_len" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">body length</span>
+                    <input id="third" name="body_len" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">mean paragraph length</span>
+                    <input id="fourth" name="mean_paragraph_len" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">day of week</span>
+                    <input id="fifth" name="day_of_week" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">is weekend? (1 or 0)</span>
+                    <input name="TAX" id="is_weekend" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">time of day</span>
+                    <input name="DIS" id="times_of_day" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">category</span>
+                    <input name="AGE" id="category" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">product</span>
+                    <input name="AGE" id="product" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">number of CTA</span>
+                    <input name="AGE" id="no_of_CTA" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">mean CTA length</span>
+                    <input name="AGE" id="mean_CTA_len" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">is image</span>
+                    <input name="AGE" id="is_image" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">is personalized</span>
+                    <input name="AGE" id="is_personalised" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">is quote</span>
+                    <input name="AGE" id="is_quote" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">is timer</span>
+                    <input name="AGE" id="is_timer" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">is emoticons</span>
+                    <input name="AGE" id="is_emoticons" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">is discount</span>
+                    <input name="AGE" id="is_discount" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">is price</span>
+                    <input name="AGE" id="is_price" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">is urgency</span>
+                    <input name="AGE" id="is_urgency" required="required">
+                </div>
+                <div class="input-box">
+                    <span class="details">target audience</span>
+                    <input name="AGE" id="target_audience" required="required">
+                </div>
+            </div>
+            <div class="button">
+                <button id="sub" type="submit ">Calculate the click rate</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
